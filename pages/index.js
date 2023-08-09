@@ -190,7 +190,7 @@ export default function Home({ posts }) {
               (postsToDisplay.length === 0 && <li>Oops, no posts found!</li>)}
           </SimpleGrid>
         </Section>
-        <SimpleGrid columns={[1, 1, 2]} gap={4}>
+        <SimpleGrid columns={[2, 2, 2]} gap={4}>
           <Button
             onClick={goToPreviousPage}
             disabled={isBeginning}

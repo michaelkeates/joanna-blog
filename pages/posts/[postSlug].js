@@ -298,7 +298,7 @@ export default function Post({ post }) {
             </Button>
           </Box>
         </div>
-        <NextLink href="/posts" passHref scroll={false}>
+        <NextLink href="/" passHref scroll={false}>
           <Button
             rightIcon={<ChevronRightIcon />}
             bg={useColorModeValue("whiteAlpha.500", "#3b1676")}

@@ -1,5 +1,32 @@
-import '@/styles/globals.css'
+import Layout from "../components/layouts/main";
+import Fonts from "../components/fonts";
+import { AnimatePresence } from "framer-motion";
+import Chakra from "../components/chakra";
+import { ApolloProvider } from "@apollo/client";
+import { getApolloClient } from "../lib/wordpress";
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+if (typeof window !== "undefined") {
+  window.history.scrollRestoration = "manual";
 }
+
+function Website({ Component, pageProps, router }) {
+  const client = getApolloClient();
+
+  return (
+    <Chakra cookies={pageProps.cookies}>
+      <ApolloProvider client={client}>
+        <Fonts />
+        <Layout router={router}>
+          <AnimatePresence
+            mode="wait"
+            initial={true}
+          >
+            <Component {...pageProps} key={router.route} />
+          </AnimatePresence>
+        </Layout>
+      </ApolloProvider>
+    </Chakra>
+  );
+}
+
+export default Website;

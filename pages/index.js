@@ -89,10 +89,7 @@ export default function Home({ posts }) {
           textAlign="center"
           justifyContent="center"
           alignItems="center"
-          bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
-          css={{ backdropFilter: "blur(10px)" }}
           padding="50px"
-          boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05)"
           width="100%"
         >
           <Box

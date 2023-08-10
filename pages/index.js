@@ -165,7 +165,7 @@ export default function Home({ posts }) {
                       marginTop="10px"
                       marginBottom="10px"
                     >
-                      🗓️ {dayMonth(post.date)}
+                      Posted: {dayMonth(post.date)}
                     </Badge>
                   </GridItem>
                   <NextLink href={post.path} passHref scroll={false}>
@@ -190,7 +190,7 @@ export default function Home({ posts }) {
               (postsToDisplay.length === 0 && <li>Oops, no posts found!</li>)}
           </SimpleGrid>
         </Section>
-        <SimpleGrid columns={[2, 2, 2]} gap={4}>
+        <SimpleGrid columns={[2, 2, 2]} gap={14}>
           <Button
             onClick={goToPreviousPage}
             disabled={isBeginning}

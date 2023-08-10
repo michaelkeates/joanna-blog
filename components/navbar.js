@@ -6,7 +6,7 @@ import {
   Box,
   Link,
   Stack,
-  Heading,
+  Button,
   Flex,
   Menu,
   MenuItem,
@@ -28,7 +28,7 @@ const Navbar = (props) => {
       position="fixed"
       as="nav"
       w="100%"
-      bg={useColorModeValue('#f5f5f7', '#2d1965')}
+      bg={useColorModeValue("#f5f5f7", "#2d1965")}
       zIndex={999}
       {...props}
     >
@@ -49,8 +49,33 @@ const Navbar = (props) => {
           mt={{ base: 4, md: 0 }}
           p={2}
         >
-          <NextLink p={2} href="/" path={path}>
-            <HomeButton />
+          <NextLink href="/" passHref scroll={false}>
+            <Button
+              alignItems="center"
+              bg={useColorModeValue("whiteAlpha.500", "#6023c0")}
+              _hover={{
+                bg: useColorModeValue("#ffffff", "#7434db"),
+              }}
+              boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
+            >
+              Home
+            </Button>
+          </NextLink>
+          <NextLink
+            href="https://joanna.michaelkeates.co.uk/wp-login.php"
+            passHref
+            scroll={false}
+          >
+            <Button
+              alignItems="center"
+              bg={useColorModeValue("whiteAlpha.500", "#6023c0")}
+              _hover={{
+                bg: useColorModeValue("#ffffff", "#7434db"),
+              }}
+              boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
+            >
+              Login
+            </Button>
           </NextLink>
         </Stack>
 
@@ -72,7 +97,7 @@ const Navbar = (props) => {
                 bg="{useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}"
                 css={{ backdropFilter: "blur(10px)" }}
               >
-                <NextLink href="/index" passHref>
+                <NextLink href="/" passHref>
                   <MenuItem
                     bg="{useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}"
                     px={4}
@@ -86,6 +111,22 @@ const Navbar = (props) => {
                     as={Link}
                   >
                     Home
+                  </MenuItem>
+                </NextLink>
+                <NextLink href="https://joanna.michaelkeates.co.uk/wp-login.php" passHref>
+                  <MenuItem
+                    bg="{useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}"
+                    px={4}
+                    py={2}
+                    transition="all 0.2s"
+                    _hover={{
+                      bg: useColorModeValue("whiteAlpha.600", "whiteAlpha.300"),
+                    }}
+                    _expanded={{ bg: "blue.400" }}
+                    _focus={{ boxShadow: "none" }}
+                    as={Link}
+                  >
+                    Login
                   </MenuItem>
                 </NextLink>
               </MenuList>

@@ -15,7 +15,7 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import LoadingLink from './loadinglink'
+import LoadingLink from "./loadinglink";
 
 const Navbar = (props) => {
   const { path } = props;
@@ -84,10 +84,12 @@ const Navbar = (props) => {
               _focus={{ boxShadow: "none" }}
             />
             <MenuList
+              bg="whiteAlpha.100"
               css={{ backdropFilter: "blur(10px)" }}
             >
               <LoadingLink href="/" passHref>
                 <MenuItem
+                  bg="whiteAlpha.100"
                   px={4}
                   py={2}
                   transition="all 0.2s"
@@ -103,6 +105,7 @@ const Navbar = (props) => {
                 passHref
               >
                 <MenuItem
+                  bg="whiteAlpha.100"
                   px={4}
                   py={2}
                   transition="all 0.2s"

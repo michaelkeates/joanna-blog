@@ -29,14 +29,11 @@ const LoadingLink = ({ href, path, children, ...props }) => {
     };
   }, [router]);
 
-  //set linkcolor to blue
-  const linkColor = path === href ? "blue.500" : "gray.500";
-
   return (
     <>
       <NextLink href={href} passHref scroll={false}>
         <Link
-          color={linkColor}
+          color="White"
           target="_blank"
           fontSize="12"
           onClick={handleClick}

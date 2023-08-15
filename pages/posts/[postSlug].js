@@ -282,10 +282,11 @@ export default function Post({ post }) {
               onChange={(e) => setNewComment(e.target.value)}
             />
             <Button
-              bg={useColorModeValue("whiteAlpha.500", "#3b1676")}
-              _hover={{
-                bg: useColorModeValue("#ffffff", "#6023c0"),
-              }}
+            bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
+            _hover={{
+              bg: useColorModeValue("#ffffff", "#828282"),
+            }}
+            boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
               position="flex"
               bottom="5px"
               right="5px"
@@ -301,10 +302,11 @@ export default function Post({ post }) {
         <NextLink href="/" passHref scroll={false}>
           <Button
             rightIcon={<ChevronRightIcon />}
-            bg={useColorModeValue("whiteAlpha.500", "#3b1676")}
+            bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
             _hover={{
-              bg: useColorModeValue("#ffffff", "#6023c0"),
+              bg: useColorModeValue("#ffffff", "#828282"),
             }}
+            boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
           >
             Go Back
           </Button>
@@ -314,22 +316,23 @@ export default function Post({ post }) {
   );
 }
 
-// Add the getServerSideProps function to fetch the specific post data
+// Add the getStaticProps function to fetch the specific post data
 export async function getServerSideProps({ params }) {
   const apolloClient = getApolloClient();
 
   const postData = await apolloClient.query({
     query: GET_POST_BY_SLUG,
     variables: {
-      slug: params.postSlug,
+      slug: params.postSlug
     },
-  });
+    fetchPolicy: 'cache-first',
+  })
 
-  const post = postData?.data?.postBy;
+  const post = postData?.data?.postBy
 
   return {
     props: {
-      post,
-    },
-  };
+      post
+    }
+  }
 }

@@ -17,6 +17,7 @@ import Bubble from "../components/bubble";
 import Message from "../components/message";
 import { GET_ALL_POSTS } from "../lib/queries";
 import { getApolloClient } from "../lib/wordpress";
+import { useQuery } from "@apollo/client";
 import { GridItem } from "../components/grid-item";
 import NextLink from "next/link";
 import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
@@ -61,6 +62,12 @@ function dayMonth(data) {
 }
 
 export default function Home({ posts }) {
+  const apolloClient = getApolloClient(); // Get Apollo client instance
+  const { loading, error, data } = useQuery(GET_ALL_POSTS, {
+    fetchPolicy: "cache-first", // Add the fetchPolicy here
+    client: apolloClient, // Provide the client instance to the hook
+  });
+
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 4;
 
@@ -230,7 +237,30 @@ export default function Home({ posts }) {
   );
 }
 
-export async function getStaticProps() {
+//export async function getStaticProps() {
+//  const apolloClient = getApolloClient();
+
+//  const postData = await apolloClient.query({
+//    query: GET_ALL_POSTS,
+//  });
+
+//  const posts = postData?.data.posts.edges
+//    .map(({ node }) => node)
+//    .map((post) => {
+//      return {
+//        ...post,
+//        path: `/posts/${post.slug}`,
+//      };
+//    });
+
+//  return {
+//    props: {
+//      posts,
+//    },
+//  };
+//}
+
+export async function getServerSideProps() {
   const apolloClient = getApolloClient();
 
   const postData = await apolloClient.query({

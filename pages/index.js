@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   SimpleGrid,
   Heading,
@@ -121,17 +121,26 @@ export default function Home({ posts }) {
               variant="page-title"
               fontFamily="Roboto"
               fontWeight=""
-              fontSize={{ base: "2.5rem", sm: "4rem", md: "3rem" }}
+              fontSize={{ base: "2.7rem", sm: "5rem", md: "4rem" }}
             >
               Joanna's Blog
             </Heading>
+            <WavingEmoji />
             <Flex
               direction="row"
               alignItems="center" // Center horizontally
               justifyContent="center" // Center vertically
             >
-              <Message>Hello!</Message>
-              <WavingEmoji />
+              <Message>
+                "Welcome to my vibrant and engaging blog website! Here, you'll
+                discover a captivating world of insights, information, and
+                inspiration. Whether you're a curious explorer, an avid learner,
+                or simply seeking a digital haven for thought-provoking content,
+                you've come to the right place. My diverse range of articles
+                covers topics spanning from technology and lifestyle to science
+                and culture, ensuring there's something here to pique everyone's
+                interest. So, what are you waiting for? Start exploring today!"
+              </Message>
             </Flex>
           </Box>
         </Box>
@@ -167,13 +176,12 @@ export default function Home({ posts }) {
                   </GridItem>
                   <NextLink href={post.path} passHref scroll={false}>
                     <Button
-                      alignItems="center"
-                      rightIcon={<ChevronRightIcon />}
-                      bg={useColorModeValue("whiteAlpha.500", "#3b1676")}
+                      bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.400")}
                       _hover={{
-                        bg: useColorModeValue("#ffffff", "#6023c0"),
+                        bg: useColorModeValue("#ffffff", "#828282"),
                       }}
                       boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
+                      fontSize="14px"
                       marginTop="10px"
                       marginBottom="10px"
                     >

@@ -28,7 +28,11 @@ const Navbar = (props) => {
       position="fixed"
       as="nav"
       w="100%"
-      bg={useColorModeValue("#f5f5f7", "#2d1965")}
+      //bg={useColorModeValue("#f5f5f7", "#2d1965")}
+      css={{
+        backdropFilter: "blur(10px)",
+        transition: "backdrop-filter 0.3s ease-out",
+      }}
       zIndex={999}
       {...props}
     >
@@ -51,12 +55,12 @@ const Navbar = (props) => {
         >
           <NextLink href="/" passHref scroll={false}>
             <Button
-              alignItems="center"
-              bg={useColorModeValue("whiteAlpha.500", "#6023c0")}
+              bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.400")}
               _hover={{
-                bg: useColorModeValue("#ffffff", "#7434db"),
+                bg: useColorModeValue("#ffffff", "#828282"),
               }}
               boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
+              fontSize="14px"
             >
               Home
             </Button>
@@ -67,71 +71,70 @@ const Navbar = (props) => {
             scroll={false}
           >
             <Button
-              alignItems="center"
-              bg={useColorModeValue("whiteAlpha.500", "#6023c0")}
+              bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.400")}
               _hover={{
-                bg: useColorModeValue("#ffffff", "#7434db"),
+                bg: useColorModeValue("#ffffff", "#828282"),
               }}
               boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
+              fontSize="14px"
             >
               Login
             </Button>
           </NextLink>
         </Stack>
 
-        <Box flex={1} ml={1} align="right">
-          <Box ml={2} display={{ base: "inline-block" }}>
-            <ThemeToggleButton />
-          </Box>
+        <Box flex={1} ml={1} align="right"></Box>
 
-          <Box ml={2} display={{ base: "inline-block", md: "none" }}>
-            <Menu isLazy id="navbar-menu">
-              <MenuButton
-                as={IconButton}
-                icon={<HamburgerIcon />}
-                variant="outline"
-                aria-label="Options"
-                _focus={{ boxShadow: "none" }}
-              />
-              <MenuList
-                bg="{useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}"
-                css={{ backdropFilter: "blur(10px)" }}
+        <Box ml={2} display={{ base: "inline-block", md: "none" }}>
+          <Menu isLazy id="navbar-menu">
+            <MenuButton
+              as={IconButton}
+              icon={<HamburgerIcon />}
+              variant="outline"
+              aria-label="Options"
+              _focus={{ boxShadow: "none" }}
+            />
+            <MenuList
+              bg="{useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}"
+              css={{ backdropFilter: "blur(10px)" }}
+            >
+              <NextLink href="/" passHref>
+                <MenuItem
+                  bg="{useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}"
+                  px={4}
+                  py={2}
+                  transition="all 0.2s"
+                  _hover={{
+                    bg: useColorModeValue("whiteAlpha.600", "whiteAlpha.300"),
+                  }}
+                  _expanded={{ bg: "blue.400" }}
+                  _focus={{ boxShadow: "none" }}
+                  as={Link}
+                >
+                  Home
+                </MenuItem>
+              </NextLink>
+              <NextLink
+                href="https://joanna.michaelkeates.co.uk/wp-login.php"
+                passHref
               >
-                <NextLink href="/" passHref>
-                  <MenuItem
-                    bg="{useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}"
-                    px={4}
-                    py={2}
-                    transition="all 0.2s"
-                    _hover={{
-                      bg: useColorModeValue("whiteAlpha.600", "whiteAlpha.300"),
-                    }}
-                    _expanded={{ bg: "blue.400" }}
-                    _focus={{ boxShadow: "none" }}
-                    as={Link}
-                  >
-                    Home
-                  </MenuItem>
-                </NextLink>
-                <NextLink href="https://joanna.michaelkeates.co.uk/wp-login.php" passHref>
-                  <MenuItem
-                    bg="{useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}"
-                    px={4}
-                    py={2}
-                    transition="all 0.2s"
-                    _hover={{
-                      bg: useColorModeValue("whiteAlpha.600", "whiteAlpha.300"),
-                    }}
-                    _expanded={{ bg: "blue.400" }}
-                    _focus={{ boxShadow: "none" }}
-                    as={Link}
-                  >
-                    Login
-                  </MenuItem>
-                </NextLink>
-              </MenuList>
-            </Menu>
-          </Box>
+                <MenuItem
+                  bg="{useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}"
+                  px={4}
+                  py={2}
+                  transition="all 0.2s"
+                  _hover={{
+                    bg: useColorModeValue("whiteAlpha.600", "whiteAlpha.300"),
+                  }}
+                  _expanded={{ bg: "blue.400" }}
+                  _focus={{ boxShadow: "none" }}
+                  as={Link}
+                >
+                  Login
+                </MenuItem>
+              </NextLink>
+            </MenuList>
+          </Menu>
         </Box>
       </Container>
     </Box>

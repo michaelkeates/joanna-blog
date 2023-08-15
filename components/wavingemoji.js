@@ -16,7 +16,9 @@ const WavingEmoji = () => {
       style={{
         display: "inline-block",
         transformOrigin: "center",
-        fontSize: "48px", // Adjust the font size to make the emoji bigger
+        fontSize: "58px", // Adjust the font size to make the emoji bigger
+        marginLeft: "10px", // Adjust the margin to make the emoji centered
+        marginRight: "10px", // Adjust the margin to make the emoji centered
       }}
     >
       👋

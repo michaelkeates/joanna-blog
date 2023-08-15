@@ -3,7 +3,6 @@ import {
   SimpleGrid,
   Heading,
   Box,
-  useColorModeValue,
   chakra,
   Container,
   Badge,
@@ -19,9 +18,9 @@ import { GET_ALL_POSTS } from "../lib/queries";
 import { getApolloClient } from "../lib/wordpress";
 import { useQuery } from "@apollo/client";
 import { GridItem } from "../components/grid-item";
-import NextLink from "next/link";
 import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
 import WavingEmoji from "../components/wavingemoji";
+import LoadingLink from "../components/loadinglink";
 
 const ProfileImage = chakra(Image, {
   shouldForwardProp: (prop) => ["width", "height", "src", "alt"].includes(prop),
@@ -157,10 +156,12 @@ export default function Home({ posts }) {
               <Section delay={0.1} key={post.slug}>
                 <Box
                   textAlign="center"
-                  bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
+                  //bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
+                  bg="whiteAlpha.200"
                   css={{ backdropFilter: "blur(10px)" }}
                   boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
                   padding="5px"
+                  borderRadius="10px"
                 >
                   <GridItem
                     thumbnail={post.featuredImage.node.sourceUrl}
@@ -172,21 +173,16 @@ export default function Home({ posts }) {
                       }}
                     />
                     <Badge
-                      bg={useColorModeValue("whiteAlpha.100", "whiteAlpha.000")}
-                      color=""
-                      whiteSpace="normal"
+                      variant="transparent"
+                      borderRadius={4}
                       marginTop="10px"
                       marginBottom="10px"
                     >
                       Posted: {dayMonth(post.date)}
                     </Badge>
                   </GridItem>
-                  <NextLink href={post.path} passHref scroll={false}>
+                  <LoadingLink href={post.path} passHref scroll={false}>
                     <Button
-                      bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.400")}
-                      _hover={{
-                        bg: useColorModeValue("#ffffff", "#828282"),
-                      }}
                       boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
                       fontSize="14px"
                       marginTop="10px"
@@ -194,7 +190,7 @@ export default function Home({ posts }) {
                     >
                       Read More
                     </Button>
-                  </NextLink>
+                  </LoadingLink>
                 </Box>
               </Section>
             ))}
@@ -209,10 +205,6 @@ export default function Home({ posts }) {
             opacity={isBeginning ? 0.5 : 1}
             style={{ pointerEvents: isBeginning ? "none" : "auto" }}
             leftIcon={<ChevronLeftIcon />}
-            bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
-            _hover={{
-              bg: useColorModeValue("#ffffff", "#828282"),
-            }}
             boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
           >
             Previous
@@ -223,10 +215,6 @@ export default function Home({ posts }) {
             opacity={isEnd ? 0.5 : 1}
             style={{ pointerEvents: isEnd ? "none" : "auto" }}
             rightIcon={<ChevronRightIcon />}
-            bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
-            _hover={{
-              bg: useColorModeValue("#ffffff", "#828282"),
-            }}
             boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
           >
             Next

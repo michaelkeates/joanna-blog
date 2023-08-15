@@ -15,7 +15,6 @@ import {
   LinkOverlay,
 } from "@chakra-ui/react";
 import Head from "next/head";
-import NextLink from "next/link";
 import { ChevronRightIcon, CopyIcon } from "@chakra-ui/icons";
 import Paragraph from "../../components/paragraph";
 import Section from "../../components/section";
@@ -28,6 +27,8 @@ import { Title, Portfolio, Blog, WorkImage, Meta } from "../../components/work";
 import styles from "../../styles/Home.module.css";
 
 import AuthorBio from "../../components/post/author-bio";
+
+import LoadingLink from '../../components/loadinglink'
 
 import {
   GET_POST_BY_SLUG,
@@ -222,6 +223,7 @@ export default function Post({ post }) {
               css={{ backdropFilter: "blur(10px)" }}
               padding="10px"
               boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05)"
+              borderRadius="md"
             >
               <Flex alignItems="center" mb={2}>
                 {comment.author.node.avatar && (
@@ -259,6 +261,7 @@ export default function Post({ post }) {
             boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05)"
             position="relative"
             widht="100%"
+            borderRadius="md"
           >
             <Input
               placeholder="Enter your name"
@@ -299,7 +302,7 @@ export default function Post({ post }) {
             </Button>
           </Box>
         </div>
-        <NextLink href="/" passHref scroll={false}>
+        <LoadingLink href="/" passHref scroll={false}>
           <Button
             rightIcon={<ChevronRightIcon />}
             bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
@@ -310,7 +313,7 @@ export default function Post({ post }) {
           >
             Go Back
           </Button>
-        </NextLink>
+        </LoadingLink>
       </Flex>
     </Section>
   );

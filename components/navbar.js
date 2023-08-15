@@ -13,12 +13,9 @@ import {
   MenuList,
   MenuButton,
   IconButton,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import ThemeToggleButton from "./theme-toggle-button";
-import HomeButton from "./home-button";
-import { IoLogoInstagram } from "react-icons/io5";
+import LoadingLink from './loadinglink'
 
 const Navbar = (props) => {
   const { path } = props;
@@ -53,28 +50,20 @@ const Navbar = (props) => {
           mt={{ base: 4, md: 0 }}
           p={2}
         >
-          <NextLink href="/" passHref scroll={false}>
+          <LoadingLink href="/" passHref scroll={false}>
             <Button
-              bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.400")}
-              _hover={{
-                bg: useColorModeValue("#ffffff", "#828282"),
-              }}
               boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
               fontSize="14px"
             >
               Home
             </Button>
-          </NextLink>
+          </LoadingLink>
           <NextLink
             href="https://joanna.michaelkeates.co.uk/wp-login.php"
             passHref
             scroll={false}
           >
             <Button
-              bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.400")}
-              _hover={{
-                bg: useColorModeValue("#ffffff", "#828282"),
-              }}
               boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
               fontSize="14px"
             >
@@ -95,44 +84,35 @@ const Navbar = (props) => {
               _focus={{ boxShadow: "none" }}
             />
             <MenuList
-              bg="{useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}"
               css={{ backdropFilter: "blur(10px)" }}
             >
-              <NextLink href="/" passHref>
+              <LoadingLink href="/" passHref>
                 <MenuItem
-                  bg="{useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}"
                   px={4}
                   py={2}
                   transition="all 0.2s"
-                  _hover={{
-                    bg: useColorModeValue("whiteAlpha.600", "whiteAlpha.300"),
-                  }}
                   _expanded={{ bg: "blue.400" }}
                   _focus={{ boxShadow: "none" }}
                   as={Link}
                 >
                   Home
                 </MenuItem>
-              </NextLink>
-              <NextLink
+              </LoadingLink>
+              <LoadingLink
                 href="https://joanna.michaelkeates.co.uk/wp-login.php"
                 passHref
               >
                 <MenuItem
-                  bg="{useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}"
                   px={4}
                   py={2}
                   transition="all 0.2s"
-                  _hover={{
-                    bg: useColorModeValue("whiteAlpha.600", "whiteAlpha.300"),
-                  }}
                   _expanded={{ bg: "blue.400" }}
                   _focus={{ boxShadow: "none" }}
                   as={Link}
                 >
                   Login
                 </MenuItem>
-              </NextLink>
+              </LoadingLink>
             </MenuList>
           </Menu>
         </Box>

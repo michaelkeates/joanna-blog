@@ -95,7 +95,6 @@ export default function Home({ posts }) {
           textAlign="center"
           justifyContent="center"
           alignItems="center"
-          padding="50px"
           width="100%"
         >
           <Box

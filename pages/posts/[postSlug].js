@@ -329,7 +329,7 @@ export async function getServerSideProps({ params }) {
     variables: {
       slug: params.postSlug,
     },
-    fetchPolicy: "cache-first",
+    fetchPolicy: "network-only",
   });
 
   const post = postData?.data?.postBy;

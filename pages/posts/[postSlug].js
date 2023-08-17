@@ -89,55 +89,58 @@ export default function Post({ post }) {
   const [createCommentMutation, { loading, error, data }] =
     useCreateCommentMutation();
 
-    const handleCommentSubmit = async () => {
-      // Check if newComment and authorName have valid values
-      // ...
-    
-      try {
-        const { data } = await createCommentMutation({
-          variables: {
-            input: {
-              content: newComment,
-              commentOn: post.databaseId,
-              author: authorName,
-              authorEmail: email,
-            },
+  const handleCommentSubmit = async () => {
+    // Check if newComment and authorName have valid values
+    // ...
+
+    try {
+      const { data } = await createCommentMutation({
+        variables: {
+          input: {
+            content: newComment,
+            commentOn: post.databaseId,
+            author: authorName,
+            authorEmail: email,
           },
-        });
-    
-        // Show success toast notification
-        toast({
-          title: "Comment added!",
-          status: "success",
-          duration: 9000,
-          isClosable: true,
-          position: "bottom",
-          render: () => (
-            <Box
-              color="white"
-              p={3}
-              bg="green.500"
-              borderRadius="md"
-              boxShadow="md"
-              zIndex="9999"
-              // Customize the bottom spacing as needed
-              css={{ marginBottom: "50px" }}
-            >
-              Comment added successfully!
-            </Box>
-          ),
-        });
-    
-        // You can consider removing the page reload
-        // setIsPageReloading(true);
-        // setTimeout(() => {
-        //   window.location.reload();
-        // }, 1000); // Delayed page reload
-    
-      } catch (error) {
-        console.error("Error creating comment:", error.message);
-      }
-    };    
+        },
+        // You can update the query name based on your use case
+        refetchQueries: [
+          { query: GET_POST_BY_SLUG, variables: { slug: postSlug } },
+        ],
+      });
+
+      // Show success toast notification
+      toast({
+        title: "Comment added!",
+        status: "success",
+        duration: 2000,
+        isClosable: true,
+        position: "bottom",
+        render: () => (
+          <Box
+            color="white"
+            p={3}
+            bg="green.500"
+            borderRadius="md"
+            boxShadow="md"
+            zIndex="9999"
+            // Customize the bottom spacing as needed
+            css={{ marginBottom: "50px" }}
+          >
+            Comment added successfully!
+          </Box>
+        ),
+      });
+
+      //You can consider removing the page reload
+      // setIsPageReloading(true);
+      // setTimeout(() => {
+      //   window.location.reload();
+      // }, 1000); // Delayed page reload
+    } catch (error) {
+      console.error("Error creating comment:", error.message);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {

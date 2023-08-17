@@ -159,7 +159,6 @@ export default function Home({ posts }) {
                   bg="whiteAlpha.200"
                   css={{ backdropFilter: "blur(10px)" }}
                   boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
-                  padding="5px"
                   borderRadius="10px"
                 >
                   <GridItem

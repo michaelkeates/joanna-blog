@@ -9,18 +9,16 @@ import {
   Button,
   Flex,
 } from "@chakra-ui/react";
-import Layout from "../components/layouts/article";
-import Section from "../components/section";
+import Section from "../components/layouts/section";
 import Image from "next/image";
-import Bubble from "../components/bubble";
-import Message from "../components/message";
+import Message from "../components/paragraph/message";
 import { GET_ALL_POSTS } from "../lib/queries";
 import { getApolloClient } from "../lib/wordpress";
 import { useQuery } from "@apollo/client";
-import { GridItem } from "../components/grid-item";
+import { GridItem } from "../components/layouts/grid-item";
 import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
 import WavingEmoji from "../components/wavingemoji";
-import LoadingLink from "../components/loadinglink";
+import LoadingLink from "../components/navigation/loadinglink";
 
 const ProfileImage = chakra(Image, {
   shouldForwardProp: (prop) => ["width", "height", "src", "alt"].includes(prop),

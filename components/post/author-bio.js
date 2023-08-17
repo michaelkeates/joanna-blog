@@ -20,8 +20,8 @@ import {
   Flex
 } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
-import Paragraph from '../../components/paragraph'
-import Section from '../../components/section'
+import Paragraph from '../paragraph/paragraph'
+import Section from '../layouts/section'
 import Image from 'next/image'
 
 const ProfileImage = chakra(Image, {

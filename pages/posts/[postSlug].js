@@ -1,6 +1,5 @@
 import {
   Textarea,
-  Container,
   Flex,
   Box,
   SimpleGrid,
@@ -10,25 +9,20 @@ import {
   useToast,
   useColorModeValue,
   chakra,
-  Badge,
-  LinkBox,
-  LinkOverlay,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import { ChevronRightIcon, CopyIcon } from "@chakra-ui/icons";
-import Paragraph from "../../components/paragraph";
-import Section from "../../components/section";
+import Paragraph from "../../components/paragraph/paragraph";
+import Section from "../../components/layouts/section";
 import Image from "next/image";
 import Layout from "../../components/layouts/article";
 import { getApolloClient } from "../../lib/wordpress";
-
-import { Title, Portfolio, Blog, WorkImage, Meta } from "../../components/work";
 
 import styles from "../../styles/Home.module.css";
 
 import AuthorBio from "../../components/post/author-bio";
 
-import LoadingLink from "../../components/loadinglink";
+import LoadingLink from "../../components/navigation/loadinglink";
 
 import {
   GET_POST_BY_SLUG,

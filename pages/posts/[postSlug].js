@@ -175,6 +175,8 @@ export default function Post({ post }) {
       }
     };
 
+    window.scrollTo(0, 0);
+
     const fetchUpdatedPostData = () => {
       if (isCopied) {
         fetchData(); // Fetch the updated post data when isCopied changes (i.e., after the user submits a comment and the page reloads)

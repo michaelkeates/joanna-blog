@@ -103,10 +103,6 @@ export default function Post({ post }) {
             authorEmail: email,
           },
         },
-        // You can update the query name based on your use case
-        refetchQueries: [
-          { query: GET_POST_BY_SLUG, variables: { slug: postSlug } },
-        ],
       });
 
       // Show success toast notification
@@ -133,10 +129,10 @@ export default function Post({ post }) {
       });
 
       //You can consider removing the page reload
-      // setIsPageReloading(true);
-      // setTimeout(() => {
-      //   window.location.reload();
-      // }, 1000); // Delayed page reload
+       setIsPageReloading(true);
+       setTimeout(() => {
+         window.location.reload();
+       }, 4000); // Delayed page reload
     } catch (error) {
       console.error("Error creating comment:", error.message);
     }

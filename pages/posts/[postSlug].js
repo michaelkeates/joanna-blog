@@ -105,7 +105,7 @@ export default function Post({ post }) {
         status: "error",
         duration: 2000,
         isClosable: true,
-        position: "bottom",
+        position: "topright",
       });
       return;
     }
@@ -120,7 +120,7 @@ export default function Post({ post }) {
         status: "error",
         duration: 2000,
         isClosable: true,
-        position: "bottom",
+        position: "topright",
       });
       return;
     }
@@ -143,7 +143,7 @@ export default function Post({ post }) {
         status: "success",
         duration: 2000,
         isClosable: true,
-        position: "bottom",
+        position: "topright",
       });
 
       // Reset validation status after successful submission

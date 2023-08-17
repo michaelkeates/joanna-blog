@@ -54,6 +54,9 @@ const Navbar = (props) => {
             <Button
               boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
               fontSize="14px"
+              border="1px"
+              borderColor="whiteAlpha.100"
+              borderRadius="md"
             >
               Home
             </Button>
@@ -66,6 +69,9 @@ const Navbar = (props) => {
             <Button
               boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
               fontSize="14px"
+              border="1px"
+              borderColor="whiteAlpha.100"
+              borderRadius="md"
             >
               Login
             </Button>

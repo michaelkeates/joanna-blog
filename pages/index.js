@@ -186,6 +186,9 @@ export default function Home({ posts }) {
                       fontSize="14px"
                       marginTop="10px"
                       marginBottom="10px"
+                      border="1px"
+                      borderColor="whiteAlpha.100"
+                      borderRadius="md"
                     >
                       Read More
                     </Button>
@@ -205,6 +208,9 @@ export default function Home({ posts }) {
             style={{ pointerEvents: isBeginning ? "none" : "auto" }}
             leftIcon={<ChevronLeftIcon />}
             boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
+            border="1px"
+            borderColor="whiteAlpha.100"
+            borderRadius="md"
           >
             Previous
           </Button>
@@ -215,6 +221,9 @@ export default function Home({ posts }) {
             style={{ pointerEvents: isEnd ? "none" : "auto" }}
             rightIcon={<ChevronRightIcon />}
             boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
+            border="1px"
+            borderColor="whiteAlpha.100"
+            borderRadius="md"
           >
             Next
           </Button>

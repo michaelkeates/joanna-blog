@@ -28,7 +28,7 @@ import styles from "../../styles/Home.module.css";
 
 import AuthorBio from "../../components/post/author-bio";
 
-import LoadingLink from '../../components/loadinglink'
+import LoadingLink from "../../components/loadinglink";
 
 import {
   GET_POST_BY_SLUG,
@@ -285,11 +285,10 @@ export default function Post({ post }) {
               onChange={(e) => setNewComment(e.target.value)}
             />
             <Button
-            bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
-            _hover={{
-              bg: useColorModeValue("#ffffff", "#828282"),
-            }}
-            boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
+              colorScheme="purple"
+              //change font color to white
+              color="white"
+              boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
               position="flex"
               bottom="5px"
               right="5px"
@@ -297,6 +296,9 @@ export default function Post({ post }) {
               ml="auto"
               mt={4}
               onClick={handleCommentSubmit}
+              border="1px"
+              borderColor="whiteAlpha.100"
+              borderRadius="md"
             >
               Comment
             </Button>
@@ -305,11 +307,10 @@ export default function Post({ post }) {
         <LoadingLink href="/" passHref scroll={false}>
           <Button
             rightIcon={<ChevronRightIcon />}
-            bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
-            _hover={{
-              bg: useColorModeValue("#ffffff", "#828282"),
-            }}
             boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
+            border="1px"
+            borderColor="whiteAlpha.100"
+            borderRadius="md"
           >
             Go Back
           </Button>
@@ -326,16 +327,16 @@ export async function getServerSideProps({ params }) {
   const postData = await apolloClient.query({
     query: GET_POST_BY_SLUG,
     variables: {
-      slug: params.postSlug
+      slug: params.postSlug,
     },
-    fetchPolicy: 'cache-first',
-  })
+    fetchPolicy: "cache-first",
+  });
 
-  const post = postData?.data?.postBy
+  const post = postData?.data?.postBy;
 
   return {
     props: {
-      post
-    }
-  }
+      post,
+    },
+  };
 }

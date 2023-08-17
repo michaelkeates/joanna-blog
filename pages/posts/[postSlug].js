@@ -77,6 +77,9 @@ function dayMonth(data) {
 }
 
 export default function Post({ post }) {
+  const [isNameValid, setIsNameValid] = useState(true);
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isCommentValid, setIsCommentValid] = useState(true);
   const toast = useToast();
   const blockquoteRefs = useRef([]);
   const isMounted = useRef(false);
@@ -90,8 +93,37 @@ export default function Post({ post }) {
     useCreateCommentMutation();
 
   const handleCommentSubmit = async () => {
-    // Check if newComment and authorName have valid values
-    // ...
+    if (!authorName || !email || !newComment) {
+      // Update validation status for each field
+      setIsNameValid(!!authorName);
+      setIsEmailValid(!!email);
+      setIsCommentValid(!!newComment);
+
+      // Show error toast for fields that are not valid
+      toast({
+        title: "Please fill in all fields.",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+        position: "bottom",
+      });
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.match(emailRegex)) {
+      setIsEmailValid(false);
+
+      toast({
+        title: "Invalid email format.",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+        position: "bottom",
+      });
+      return;
+    }
 
     try {
       const { data } = await createCommentMutation({
@@ -112,27 +144,18 @@ export default function Post({ post }) {
         duration: 2000,
         isClosable: true,
         position: "bottom",
-        render: () => (
-          <Box
-            color="white"
-            p={3}
-            bg="green.500"
-            borderRadius="md"
-            boxShadow="md"
-            zIndex="9999"
-            // Customize the bottom spacing as needed
-            css={{ marginBottom: "50px" }}
-          >
-            Comment added successfully!
-          </Box>
-        ),
       });
 
+      // Reset validation status after successful submission
+      setIsNameValid(true);
+      setIsEmailValid(true);
+      setIsCommentValid(true);
+
       //You can consider removing the page reload
-       setIsPageReloading(true);
-       setTimeout(() => {
-         window.location.reload();
-       }, 4000); // Delayed page reload
+      setIsPageReloading(true);
+      setTimeout(() => {
+        window.location.reload();
+      }, 4000); // Delayed page reload
     } catch (error) {
       console.error("Error creating comment:", error.message);
     }
@@ -268,6 +291,7 @@ export default function Post({ post }) {
               size="md"
               value={authorName}
               onChange={(e) => setAuthorName(e.target.value)}
+              borderColor={isNameValid ? undefined : "red"}
               marginBottom="10px" // Add some spacing between the input and the textarea
             />
             <Input
@@ -275,6 +299,7 @@ export default function Post({ post }) {
               size="md"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              borderColor={isEmailValid ? undefined : "red"}
               marginBottom="10px" // Add some spacing between the input and the textarea
             />
             <Textarea
@@ -282,6 +307,7 @@ export default function Post({ post }) {
               size="md"
               flex="1"
               value={newComment}
+              borderColor={isCommentValid ? undefined : "red"}
               onChange={(e) => setNewComment(e.target.value)}
             />
             <Button

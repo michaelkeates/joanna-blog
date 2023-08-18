@@ -13,7 +13,7 @@ function Website({ Component, pageProps, router }) {
   const client = getApolloClient();
 
   return (
-    <Chakra cookies={pageProps.cookies}>
+    <Chakra>
       <ApolloProvider client={client}>
         <Fonts />
         <Layout router={router}>

@@ -43,7 +43,7 @@ This is a sophisticated web application that combines the power of Next.js's SSR
 <img src="https://blog.michaelkeates.co.uk/wp-content/uploads/2023/08/joannablog3.jpg" width="45%" hspace="10"/>
 
 <h2 align="left">Variables</h2>
-To set up the Environment Variable for the Wordpress URL simply create a '.env.local' in the root directory of the project and the add the following line.
+To set up the End point for the Wordpress URL simply create a '.env.local' in the root directory of the project and the add the following line.
 <pre class="gitcode">NEXT_PUBLIC_WORDPRESS_GRAPHQL_ENDPOINT="https://URL/graphql"</pre>
 
 

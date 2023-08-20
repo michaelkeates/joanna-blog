@@ -22,7 +22,7 @@
 
 </p>
 A simple nextJS blog website developed for a client that is connected to Wordpress as the backend.
-<br>
+<br></br>
 <p align="center">
   <img src="https://blog.michaelkeates.co.uk/wp-content/uploads/2023/08/joannablog.jpg" width"140px"/>
 </p>

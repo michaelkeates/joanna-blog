@@ -32,7 +32,7 @@ This is a sophisticated web application that combines the power of Next.js's SSR
 <h2 align="left">Stack</h2>
 <ul>
 <li><a href="https://nextjs.org/)">Next.js</a> Next.js is a popular React framework that provides server-side rendering. SSR allows the initial page load to happen on the server side, enhancing performance and SEO</li>
-<li><a href="https://chakra-ui.com/">Chakra UI</a> A simple, modular and accessible component library for React</li>
+<li><a href="https://chakra-ui.com/">Chakra UI</a> A simple, modular and accessible React UI component library</li>
 <li><a href="https://www.framer.com/motion/">Framer Motion</a> An animation library for React</li>
 <li><a href="https://github.com/apollographql/apollo-tooling/">Apollo</a> GraphQL to fetch posts and add comments to a headless Wordpress</li>
 <li><a href="https://wordpress.com/">Wordpress</a> A headless Wordpress instance as the backend</li>

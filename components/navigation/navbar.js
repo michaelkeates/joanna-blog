@@ -1,13 +1,11 @@
-//import Logo from './logo'
 import NextLink from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import {
   Container,
   Box,
   Link,
   Stack,
   Button,
-  Flex,
   Menu,
   MenuItem,
   MenuList,

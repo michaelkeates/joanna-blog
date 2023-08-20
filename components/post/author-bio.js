@@ -1,25 +1,9 @@
 import React from 'react'
-
-import NextLink from 'next/link'
-//import Image from 'next/image'
-import { gql } from '@apollo/client'
-
 import {
-  Link,
-  Container,
   Heading,
   Box,
-  SimpleGrid,
-  Button,
-  Divider,
-  //  List,
-  //  ListItem,
-  useColorModeValue,
-  chakra,
-  Badge,
-  Flex
+  chakra
 } from '@chakra-ui/react'
-import { ChevronRightIcon } from '@chakra-ui/icons'
 import Paragraph from '../paragraph/paragraph'
 import Section from '../layouts/section'
 import Image from 'next/image'

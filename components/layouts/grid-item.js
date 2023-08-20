@@ -12,7 +12,7 @@ export const GridItem = ({ children, href, title, thumbnail }) => (
         //placeholder="blur"
         layout="responsive"
         height="220"
-        width="0" // Set the width to 100% to fill the box
+        width="0"
         loading="lazy"
       />
       <LinkOverlay href={href} target="_blank">

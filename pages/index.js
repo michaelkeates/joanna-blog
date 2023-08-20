@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   SimpleGrid,
   Heading,
   Box,
   chakra,
-  Container,
   Badge,
   Button,
   Flex,
@@ -59,10 +58,10 @@ function dayMonth(data) {
 }
 
 export default function Home({ posts }) {
-  const apolloClient = getApolloClient(); // Get Apollo client instance
+  const apolloClient = getApolloClient();
   const { loading, error, data } = useQuery(GET_ALL_POSTS, {
-    fetchPolicy: "cache-first", // Add the fetchPolicy here
-    client: apolloClient, // Provide the client instance to the hook
+    fetchPolicy: "cache-first",
+    client: apolloClient,
   });
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -131,8 +130,8 @@ export default function Home({ posts }) {
             <WavingEmoji />
             <Flex
               direction="row"
-              alignItems="center" // Center horizontally
-              justifyContent="center" // Center vertically
+              alignItems="center"
+              justifyContent="center"
             >
               <Message>
                 "Welcome to my vibrant and engaging blog website! Here, you'll
@@ -153,7 +152,6 @@ export default function Home({ posts }) {
               <Section delay={0.1} key={post.slug}>
                 <Box
                   textAlign="center"
-                  //bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
                   bg="whiteAlpha.200"
                   css={{ backdropFilter: "blur(10px)" }}
                   boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
@@ -230,6 +228,7 @@ export default function Home({ posts }) {
   );
 }
 
+//revert back in case raspberry pi goes offline
 //export async function getStaticProps() {
 //  const apolloClient = getApolloClient();
 

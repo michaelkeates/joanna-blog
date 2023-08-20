@@ -1,5 +1,4 @@
 import { Box } from '@chakra-ui/react'
-//import 'rc-footer/assets/index.css'; // import 'rc-footer/asssets/index.less';
 
 const Footer = () => {
   return (

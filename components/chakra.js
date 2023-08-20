@@ -8,11 +8,3 @@ export default function Chakra({ children }) {
     </ChakraProvider>
   );
 }
-
-export async function getServerSideProps({ req }) {
-  return {
-    props: {
-      cookies: req.headers.cookie ?? '',
-    },
-  };
-}

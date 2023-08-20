@@ -10,26 +10,18 @@ import {
   useColorModeValue,
   chakra,
 } from "@chakra-ui/react";
-import Head from "next/head";
 import { ChevronRightIcon, CopyIcon } from "@chakra-ui/icons";
 import Paragraph from "../../components/paragraph/paragraph";
 import Section from "../../components/layouts/section";
 import Image from "next/image";
-import Layout from "../../components/layouts/article";
 import { getApolloClient } from "../../lib/wordpress";
-
 import styles from "../../styles/Home.module.css";
-
 import AuthorBio from "../../components/post/author-bio";
-
 import LoadingLink from "../../components/navigation/loadinglink";
-
 import {
   GET_POST_BY_SLUG,
-  GET_ALL_POSTS,
   useCreateCommentMutation,
 } from "../../lib/queries";
-
 import { useEffect, useRef, useState } from "react";
 
 const ProfileImage = chakra(Image, {
@@ -88,12 +80,12 @@ export default function Post({ post }) {
 
   const handleCommentSubmit = async () => {
     if (!authorName || !email || !newComment) {
-      // Update validation status for each field
+      //update validation status for each field
       setIsNameValid(!!authorName);
       setIsEmailValid(!!email);
       setIsCommentValid(!!newComment);
 
-      // Show error toast for fields that are not valid
+      //show error toast for fields that are not valid
       toast({
         title: "Please fill in all fields.",
         status: "error",
@@ -104,7 +96,7 @@ export default function Post({ post }) {
       return;
     }
 
-    // Validate email format
+    //validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email.match(emailRegex)) {
       setIsEmailValid(false);
@@ -131,7 +123,7 @@ export default function Post({ post }) {
         },
       });
 
-      // Show success toast notification
+      //show success toast notification
       toast({
         title: "Comment added!",
         status: "success",
@@ -140,16 +132,14 @@ export default function Post({ post }) {
         position: "topright",
       });
 
-      // Reset validation status after successful submission
+      //reset validation status after successful submission
       setIsNameValid(true);
       setIsEmailValid(true);
       setIsCommentValid(true);
-
-      //You can consider removing the page reload
       setIsPageReloading(true);
       setTimeout(() => {
         window.location.reload();
-      }, 4000); // Delayed page reload
+      }, 4000); //delayed page reload
     } catch (error) {
       console.error("Error creating comment:", error.message);
     }
@@ -169,7 +159,6 @@ export default function Post({ post }) {
 
         const updatedPost = postData?.data?.postBy;
 
-        // TODO: Set the updatedPost to the component state or wherever you need it
       } catch (error) {
         console.error("Error fetching updated post data:", error.message);
       }
@@ -179,33 +168,10 @@ export default function Post({ post }) {
 
     const fetchUpdatedPostData = () => {
       if (isCopied) {
-        fetchData(); // Fetch the updated post data when isCopied changes (i.e., after the user submits a comment and the page reloads)
+        fetchData(); //fetch the updated post data when isCopied changes (i.e., after the user submits a comment and the page reloads)
       }
     };
-    if (!isMounted.current) {
-      isMounted.current = true;
-      const blockquotes = Array.from(
-        blockquoteRefs.current.querySelectorAll(".wp-block-code")
-      );
-      blockquotes.forEach((blockquote) => {
-        if (!blockquote.querySelector(".copy-btn")) {
-          const quoteText = blockquote.textContent;
-
-          blockquote.addEventListener("mouseover", () => {
-            // Handle mouseover logic here
-          });
-          blockquote.addEventListener("mouseout", () => {
-            // Handle mouseout logic here
-          });
-
-          blockquote.style.position = "relative";
-          blockquote.style.display = "inline-block";
-          blockquote.style.paddingTop = "25px";
-          // Append the copy button dynamically if needed
-        }
-      });
-      fetchData();
-    }
+    
     fetchUpdatedPostData();
   }, [isCopied, post.slug]);
 
@@ -288,7 +254,7 @@ export default function Post({ post }) {
               value={authorName}
               onChange={(e) => setAuthorName(e.target.value)}
               borderColor={isNameValid ? undefined : "red"}
-              marginBottom="10px" // Add some spacing between the input and the textarea
+              marginBottom="10px"
             />
             <Input
               placeholder="Enter your email"
@@ -296,7 +262,7 @@ export default function Post({ post }) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               borderColor={isEmailValid ? undefined : "red"}
-              marginBottom="10px" // Add some spacing between the input and the textarea
+              marginBottom="10px"
             />
             <Textarea
               placeholder="Enter your comment"
@@ -308,7 +274,6 @@ export default function Post({ post }) {
             />
             <Button
               colorScheme="purple"
-              //change font color to white
               color="white"
               boxShadow="0px 0px 12px 0px rgba(0,0,0,0.05);"
               position="flex"
@@ -342,7 +307,6 @@ export default function Post({ post }) {
   );
 }
 
-// Add the getStaticProps function to fetch the specific post data
 export async function getServerSideProps({ params }) {
   const apolloClient = getApolloClient();
 

@@ -22,12 +22,11 @@
 
 </p>
 A simple nextJS blog website developed for a client that is connected to Wordpress as the backend.
-<br>
+<br></br>
 <p align="center">
   <img src="https://blog.michaelkeates.co.uk/wp-content/uploads/2023/08/joannablog.jpg" width"140px"/>
 </p>
 <h2 align="left">Description</h2>
-
 This is a sophisticated web application that combines the power of Next.js's SSR capabilities, WordPress's content management functionalities, and GraphQL's efficiency in handling user comments. This setup provides a seamless and engaging experience for users, offering fast loading times, real-time interactions, and the convenience of content management through WordPress as the client specifically required for the ease of posting new content.
 
 <h2 align="left">Stack</h2>
@@ -42,6 +41,11 @@ This is a sophisticated web application that combines the power of Next.js's SSR
 
 <img src="https://blog.michaelkeates.co.uk/wp-content/uploads/2023/08/joannablog.jpg" width="45%" hspace="10"/> <img src="https://blog.michaelkeates.co.uk/wp-content/uploads/2023/08/joannablog2.jpg" width="45%" hspace="10"/>
 <img src="https://blog.michaelkeates.co.uk/wp-content/uploads/2023/08/joannablog3.jpg" width="45%" hspace="10"/>
+
+<h2 align="left">Variables</h2>
+To set up the Environment Variable for the Wordpress URL simply create a '.env.local' in the root directory of the project and the add the following line.
+<pre class="gitcode">NEXT_PUBLIC_WORDPRESS_GRAPHQL_ENDPOINT="https://URL/graphql"</pre>
+
 
 <h3 align="left">Author</h3>
 <ul>

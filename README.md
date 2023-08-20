@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://repository-images.githubusercontent.com/676714602/954e3f27-51ab-4f25-aed6-b078159fd8b8" width="300px" height="300px"/>
+  <img src="https://repository-images.githubusercontent.com/676714602/091106df-1845-4ce8-9011-7807620abd49" width="300px" height="300px"/>
 </p>
 <h1 align="center">Joanna's Blog</h1>
 <p align="center">

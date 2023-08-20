@@ -30,7 +30,7 @@ A simple nextJS blog website developed for a client that is connected to Wordpre
 <br></br>
 <h2 align="left">Description</h2>
 
-This is a sophisticated web application that combines the power of Next.js's SSR capabilities, WordPress's content management functionalities, and GraphQL's efficiency in handling user comments. This setup provides a seamless and engaging experience for users, offering fast loading times, real-time interactions, and the convenience of content management through WordPress as the client specifcally required.
+This is a sophisticated web application that combines the power of Next.js's SSR capabilities, WordPress's content management functionalities, and GraphQL's efficiency in handling user comments. This setup provides a seamless and engaging experience for users, offering fast loading times, real-time interactions, and the convenience of content management through WordPress as the client specifically required for the ease of posting new content.
 
 <h2 align="left">Stack</h2>
 <ul>

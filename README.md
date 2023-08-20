@@ -43,11 +43,8 @@ This is a sophisticated web application that combines the power of Next.js's SSR
 <br></br>
 <h2 align="left">Images</h2>
 
-<p align="center">
-  <img src="https://blog.michaelkeates.co.uk/wp-content/uploads/2023/08/joannablog.jpg" width="100px" height="67px"/>
-  <img src="https://blog.michaelkeates.co.uk/wp-content/uploads/2023/08/joannablog2.jpg" width="100px" height="67px"/>
-  <img src="https://blog.michaelkeates.co.uk/wp-content/uploads/2023/08/joannablog3.jpg" width="100px" height="67px"/>
-</p>
+<img src="https://blog.michaelkeates.co.uk/wp-content/uploads/2023/08/joannablog.jpg" width="45%" hspace="10"/> <img src="https://blog.michaelkeates.co.uk/wp-content/uploads/2023/08/joannablog2.jpg" width="45%" hspace="10"/>
+<img src="https://blog.michaelkeates.co.uk/wp-content/uploads/2023/08/joannablog3.jpg" width="45%" hspace="10"/>
 <br></br>
 
 <h3 align="left">Author</h3>

@@ -2,25 +2,7 @@
   <img src="https://repository-images.githubusercontent.com/676714602/091106df-1845-4ce8-9011-7807620abd49" width="300px" height="300px"/>
 </p>
 <h1 align="center">Joanna's Blog</h1>
-<p align="center">
 
-<a href="http://unlicense.org/">
-<img src="https://img.shields.io/badge/license-Unlicense-blue.svg" alt="License: Unlicense">
-</a>
-
-<a href="https://github.com/michaelkeates/joanna-blog/issues">
-<img src="https://img.shields.io/github/issues/michaelkeates/Hammurabi.svg" alt="Issues">
-</a>
-
-<a href="https://github.com/michaelkeates/joanna-blog/fork">
-<img src="https://img.shields.io/github/forks/michaelkeates/Hammurabi.svg" alt="Forks">
-</a>
-
-<a href="https://github.com/michaelkeates/joanna-blog">
-<img src="https://img.shields.io/github/stars/michaelkeates/Hammurabi.svg" alt="Stars">
-</a>
-
-</p>
 A simple nextJS blog website developed for a client that is connected to Wordpress as the backend.
 <br></br>
 <p align="center">
